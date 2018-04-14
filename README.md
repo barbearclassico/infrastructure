@@ -30,11 +30,11 @@ Execute the command to deploy a VM
 - Load DB if is not set: download and build the latest from dropbox
 - Load DB if is not set: install mysql
 - Load DB if is not set: install users
-- install 
 - Put backup scripts in place
-- install apache: get apache server
-- install apache: download required modules
-- install apache: get SSL barbearclassico - let's encrypt
+- install nginx: get nginx server
+- install nginx: download required modules
+- install nginx: download required modules - maxmind geolocation
+- install nginx: get SSL barbearclassico - let's encrypt
 - Setup mailgun
 - Get SMF engine
 - Get SMF theme
