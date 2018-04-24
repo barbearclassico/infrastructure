@@ -23,24 +23,46 @@ Execute the command to deploy a VM
 
     vagrant up
 
+Provision the instance:
+
+    vagrant provision
+
 
 ## Priority
 
-- Setting up dropbox sync
-- Load DB if is not set: download and build the latest from dropbox
-- Load DB if is not set: install mysql
-- Load DB if is not set: install users
-- Put backup scripts in place
-- install nginx: get nginx server
-- install nginx: download required modules
-- install nginx: download required modules - maxmind geolocation
-- install nginx: get SSL barbearclassico - let's encrypt
-- Setup mailgun
-- Get SMF engine
-- Get SMF theme
-- Deploy newsletter phplist
-- Deploy revive
-- Deploy datadoghq
-- Godaddy API
-- firewall
+
+### DONE:
+
+- Setting up dropbox sync /opt/bctools/
+
+### TODO:
+
+- Put backup scripts in place /opt/bctools/
+
+- MySQL 
+    - install mysql
+    - create users
+    - download and build the latest backup from dropbox
+    
+- NGINX
+   - get nginx server 
+   - install nginx: download required modules
+   - configure maxmind geolocation
+   - get SSL barbearclassico - let's encrypt
+
+- Forum: 
+    - Get SMF engine /srv/bc/forum
+    - Get SMF theme  /srv/bc/forum
+
+- Forum Tools:
+    - BCTelegram     /opt/bctools/
+    - photoselector  /srv/bc/photoselector
+    - Deploy newsletter phplist /srv/bc/phplist
+    - Deploy revive           /srv/bc/revive
+
+- Core:
+    - MAIL (Setup mailgun)
+    - Deploy datadoghq
+    - Godaddy API   /opt/bctools/bcgodaddy
+    - firewall
 
