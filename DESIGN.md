@@ -1,6 +1,6 @@
 
 
-Available servers:
+# Available servers:
 - comptine
 - palladio
 - oxygene
@@ -8,14 +8,14 @@ Available servers:
 
 
 
-comptine (old-prod)
+## comptine (old-prod)
 - reverse proxy
 - firewall
 - datadoghq
 
 
 
-palladio
+## palladio
 - nginx 
 - revive
 - mailgun
@@ -23,7 +23,7 @@ palladio
 - datadoghq
 
 
-oxygene
+## oxygene
 - forum
 - newsletter
 - mailgun
@@ -33,11 +33,8 @@ oxygene
 
 
 
-TO DO:
+# Playbooks to do:
 - telegram
-- photoselector`
-
-
-Others
+- photoselector
 - gitolite
 - bookmarks
