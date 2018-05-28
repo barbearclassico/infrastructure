@@ -1,0 +1,41 @@
+---
+- name: Install MySQL Ansible requirements
+  apt: name={{ item }} state=present
+  with_items:
+    - python-mysqldb
+
+- name: Ensure MySQL is installed
+  apt:
+    name: mysql-server
+    state: present
+
+
+- name: check if DB exists
+  shell: mysql --host={{ db_host }} --user={{ db_username }} --password={{ db_password }} -e 'SHOW DATABASES;' | grep -c {{ db_name }}
+  register: dbstatus
+  failed_when: dbstatus.rc == 2
+
+- name: Create database
+  mysql_db: name={{db_name}} collation=utf8mb4_unicode_ci state=present login_host={{ db_host }} login_user={{ db_root_username }} login_password={{ db_root_password }}
+  when: dbstatus.stdout == "0"
+
+- name: Create application user in the database
+  mysql_user: name={{ db_username }} password={{ db_password }} host={{ db_connection_host }} append_privs=true priv={{ db_name }}.*:ALL state=present login_host={{ db_host }} login_user={{ db_root_username }} login_password={{ db_root_password }}
+  when: dbstatus.stdout == "0"
+
+
+- name: Create a new database with name 'barbeartestes0123'
+  mysql_db:
+    name: barbeartestes0123
+    state: present
+    register: bc_present
+    # - name: display output
+    #   debug: msg= "{{ bc_present.stdout_lines | to_nice_json }}"
+
+- name: MySQL adduser simplemachines
+  mysql_user:
+      name: simplemachines
+      password: 12345
+      priv: '*.*:ALL,GRANT'
+      state: present
+

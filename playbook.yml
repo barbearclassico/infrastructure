@@ -4,6 +4,7 @@
   roles:
      - BCdropbox
      - backup
+     - bcmysql
        #    - ansible-role-mysql
        #    - ansible-role-nginx
   # - bcmysql
